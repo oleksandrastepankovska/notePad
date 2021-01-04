@@ -1,0 +1,18 @@
+#note_form{
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	width: 200px;
+}
+
+#options{
+	display: flex;
+}
+
+input{
+	background: transparent;
+}
+
+textarea{
+	background: transparent;
+}
