@@ -29,7 +29,6 @@ deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
 renderedNotes = document.querySelectorAll(".rendered_note");
 };
 
-
 renderNotes();
 
 const addNote = () => {
@@ -52,17 +51,6 @@ const deleteNote = (id) => {
 	renderNotes();
 	deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
 }
-
-
-
-const changeColor = () => {
-	noteForm.style.backgroundColor = colorPicker.value;
-}
-
-// const renderedNoteColor = () => {
-// 	renderedNotes.style.backgroundColor = note.color;
-// }
-
 
 deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
 addBtn.addEventListener("click", addNote);
