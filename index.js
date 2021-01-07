@@ -54,4 +54,3 @@ const deleteNote = (id) => {
 
 deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
 addBtn.addEventListener("click", addNote);
-colorPicker.addEventListener("input", changeColor);

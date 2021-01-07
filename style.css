@@ -1,8 +1,48 @@
+html{
+	background-color: yellowgreen;
+}
+
+header{
+	display: flex;
+	justify-content: center;
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+}
+
 #note_form{
+	background-color: white;
 	display: flex;
 	flex-direction: column;
-	justify-content: left;
+	justify-content: center;
 	width: 200px;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+#title {
+	font-family: inherit;
+	border: 0;
+	border-bottom: 2px solid gray;
+	outline: 0;
+	font-size: 33px;
+	padding: 7px;
+	margin: 7px;
+}
+
+textarea {
+	resize: none;
+	font-family: inherit;
+	border: 0;
+	border-bottom: 2px solid gray;
+	outline: 0;
+	font-size: 23px;
+	padding: 7px;
+	margin: 7px;
+
 }
 
 #options{
