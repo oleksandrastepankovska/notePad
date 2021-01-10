@@ -14,6 +14,16 @@ const onDeleteClick = (e) => {
 	deleteNote(e.target.dataset.id);
 }
 
+const alertIfEmpty = (el) => {
+	if(el.value == ""){
+		alert("Type anything!");
+	}
+}
+
+const changeInput = (el, value) => {
+	el.value = value;
+}
+
 const renderNotes = () => {rootDiv.innerHTML = `${notes.map(
 (note) =>
 `<div style="background-color: ${note.color};" class= "rendered_note">
@@ -27,6 +37,9 @@ const renderNotes = () => {rootDiv.innerHTML = `${notes.map(
 deleteBtns = document.querySelectorAll(".delete_button");
 deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
 renderedNotes = document.querySelectorAll(".rendered_note");
+changeInput(title, "");
+changeInput(content, "");
+changeInput(colorPicker, "#ffffff");
 };
 
 renderNotes();
