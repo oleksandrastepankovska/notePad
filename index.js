@@ -17,9 +17,9 @@ const onDeleteClick = (e) => {
 const renderNotes = () => {rootDiv.innerHTML = `${notes.map(
 (note) =>
 `<div style="background-color: ${note.color};" class= "rendered_note">
-	<div>${note.createDate}</div>
-	<div>${note.title}</div>
-	<div>${note.content}</div>
+	<div class="renderedDate">${note.createDate}</div>
+	<div class="renderedTitle">${note.title}</div>
+	<div class="renderedContent">${note.content}</div>
 	<button class="delete_button" data-id="${note.id}">delete</button>
 </div>
 `

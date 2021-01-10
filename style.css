@@ -20,10 +20,12 @@ header{
 	width: 200px;
 	padding: 10px;
 	margin: 10px;
+	border: 3px solid black;
+	border-radius: 10px;
 }
 
 
-#title {
+#title, .renderedTitle {
 	font-family: inherit;
 	border: 0;
 	border-bottom: 2px solid gray;
@@ -33,7 +35,7 @@ header{
 	margin: 7px;
 }
 
-textarea {
+#content, .renderedContent{
 	resize: none;
 	font-family: inherit;
 	border: 0;
@@ -42,6 +44,7 @@ textarea {
 	font-size: 23px;
 	padding: 7px;
 	margin: 7px;
+	background: transparent;
 
 }
 
@@ -53,6 +56,19 @@ input{
 	background: transparent;
 }
 
-textarea{
-	background: transparent;
+#root{
+	display: flex;
 }
+
+.rendered_note{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px;
+	margin: 10px;
+	width: 20%;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+
