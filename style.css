@@ -79,4 +79,17 @@ input{
 	border-radius: 10px;
 }
 
+.renderedNoteOptions{
+	display: flex;
+	justify-content: space-between;
+}
 
+.pinned{
+	content: url(https://img.icons8.com/material-outlined/2x/pin.png);
+	width: 20px;
+
+}
+
+.pinned:hover{
+	content: url(https://img.icons8.com/material/2x/pin.png);
+}

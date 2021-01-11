@@ -27,7 +27,10 @@ const changeInput = (el, value) => {
 const renderNotes = () => {rootDiv.innerHTML = `${notes.map(
 (note) =>
 `<div style="background-color: ${note.color};" class= "rendered_note">
-	<div class="renderedDate">${note.createDate}</div>
+	<options class="renderedNoteOptions">
+		<div class="renderedDate">${note.createDate}</div>
+		<div class="pinned"></div>
+	</options>
 	<div class="renderedTitle">${note.title}</div>
 	<div class="renderedContent">${note.content}</div>
 	<button class="delete_button" data-id="${note.id}">delete</button>
@@ -44,12 +47,14 @@ changeInput(colorPicker, "#ffffff");
 
 renderNotes();
 
+var dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+
 const addNote = () => {
 	const note = {
 		id: "" + Date.now(),
 		title: title.value,
 		content: content.value,
-		createDate: new Date(),
+		createDate: new Date().toLocaleDateString('pl-PL', dateOptions),
 		color : colorPicker.value
 	}
 	
