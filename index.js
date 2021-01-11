@@ -31,8 +31,8 @@ const renderNotes = () => {rootDiv.innerHTML = `${notes.map(
 		<div class="renderedDate">${note.createDate}</div>
 		<div class="pinned"></div>
 	</options>
-	<div class="renderedTitle">${note.title}</div>
-	<div class="renderedContent">${note.content}</div>
+	<div class="renderedTitle" readonly>${note.title}</div>
+	<textarea class="renderedContent" readonly>${note.content}</textarea>
 	<button class="delete_button" data-id="${note.id}">delete</button>
 </div>
 `

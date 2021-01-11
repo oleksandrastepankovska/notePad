@@ -24,6 +24,9 @@ header{
 	border-radius: 10px;
 }
 
+#colorInstruction{
+	margin: 0px;
+}
 
 #title, .renderedTitle {
 	font-family: inherit;
@@ -33,6 +36,10 @@ header{
 	font-size: 33px;
 	padding: 7px;
 	margin: 7px;
+}
+
+.renderedTitle{
+	overflow: hidden;
 }
 
 #content, .renderedContent{
@@ -45,12 +52,12 @@ header{
 	padding: 7px;
 	margin: 7px;
 	background: transparent;
-
 }
 
 #options{
 	display: flex;
-	padding: 7px;
+	justify-content: space-around;
+	align-items: center;
 	margin: 7px;
 }
 
