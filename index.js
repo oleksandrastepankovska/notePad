@@ -1,34 +1,27 @@
-const title = document.querySelector("#title");
-const content = document.querySelector("#content");
-const addBtn = document.querySelector("#addBtn");
-const noteForm = document.querySelector("#note_form");
-const colorPicker = document.querySelector("#color_picker");
-const rootDiv = document.querySelector("#root");
+const title = document.querySelector('#title');
+const content = document.querySelector('#content');
+const addBtn = document.querySelector('#addBtn');
+const colorPicker = document.querySelector('#color_picker');
+const rootDiv = document.querySelector('#root');
 
-const LS_KEY = "notes";
+const LS_KEY = 'notes';
 const defaultNotes = JSON.parse(localStorage.getItem(LS_KEY));
 let notes = defaultNotes || [];
 let deleteBtns;
 
 const onDeleteClick = (e) => {
-  deleteNote(e.target.dataset.id);
-};
-
-const alertIfEmpty = (el) => {
-  if (el.value == "") {
-    alert("Type anything!");
-  }
+	deleteNote(e.target.dataset.id);
 };
 
 const changeInput = (el, value) => {
-  el.value = value;
+	el.value = value;
 };
 
 const renderNotes = () => {
-  rootDiv.innerHTML = `${notes
-    .map(
-      (note) =>
-        `<div style="background-color: ${note.color};" class= "rendered_note">
+	rootDiv.innerHTML = `${notes
+		.map(
+			(note) =>
+				`<div style="background-color: ${note.color};" class= "rendered_note">
 	<options class="renderedNoteOptions">
 		<div class="renderedDate">${note.createDate}</div>
 		<div class="pinned"></div>
@@ -38,40 +31,39 @@ const renderNotes = () => {
 	<button class="delete_button" data-id="${note.id}">delete</button>
 </div>
 `
-    )
-    .join("")}`;
-  deleteBtns = document.querySelectorAll(".delete_button");
-  deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
-  renderedNotes = document.querySelectorAll(".rendered_note");
-  changeInput(title, "");
-  changeInput(content, "");
-  changeInput(colorPicker, "#ffffff");
+		)
+		.join('')}`;
+	deleteBtns = document.querySelectorAll('.delete_button');
+	deleteBtns.forEach((btn) => btn.addEventListener('click', onDeleteClick));
+	changeInput(title, '');
+	changeInput(content, '');
+	changeInput(colorPicker, '#ffffff');
 };
 
 renderNotes();
 
-var dateOptions = { weekday: "long", month: "long", day: "numeric" };
+var dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
 
 const addNote = () => {
-  const note = {
-    id: "" + Date.now(),
-    title: title.value,
-    content: content.value,
-    createDate: new Date().toLocaleDateString("pl-PL", dateOptions),
-    color: colorPicker.value,
-  };
+	const note = {
+		id: '' + Date.now(),
+		title: title.value,
+		content: content.value,
+		createDate: new Date().toLocaleDateString('pl-PL', dateOptions),
+		color: colorPicker.value,
+	};
 
-  notes.push(note);
-  localStorage.setItem(LS_KEY, JSON.stringify(notes));
-  renderNotes();
+	notes.push(note);
+	localStorage.setItem(LS_KEY, JSON.stringify(notes));
+	renderNotes();
 };
 
 const deleteNote = (id) => {
-  notes = notes.filter((item) => item.id !== id);
-  localStorage.setItem(LS_KEY, JSON.stringify(notes));
-  renderNotes();
-  deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
+	notes = notes.filter((item) => item.id !== id);
+	localStorage.setItem(LS_KEY, JSON.stringify(notes));
+	renderNotes();
+	deleteBtns.forEach((btn) => btn.addEventListener('click', onDeleteClick));
 };
 
-deleteBtns.forEach((btn) => btn.addEventListener("click", onDeleteClick));
-addBtn.addEventListener("click", addNote);
+deleteBtns.forEach((btn) => btn.addEventListener('click', onDeleteClick));
+addBtn.addEventListener('click', addNote);
