@@ -3,6 +3,7 @@ const content = document.querySelector('#content');
 const addBtn = document.querySelector('#addBtn');
 const colorPicker = document.querySelector('#color_picker');
 const rootDiv = document.querySelector('#root');
+const pin = document.querySelector('.pinned');
 
 const LS_KEY = 'notes';
 const defaultNotes = JSON.parse(localStorage.getItem(LS_KEY));
@@ -21,10 +22,9 @@ const renderNotes = () => {
 	rootDiv.innerHTML = `${notes
 		.map(
 			(note) =>
-				`<div style="background-color: ${note.color};" class= "rendered_note">
+				`<div style="background-color: ${note.color};" class="rendered_note">
 	<options class="renderedNoteOptions">
 		<div class="renderedDate">${note.createDate}</div>
-		<div class="pinned"></div>
 	</options>
 	<div class="renderedTitle" readonly>${note.title}</div>
 	<textarea class="renderedContent" readonly>${note.content}</textarea>
@@ -45,17 +45,22 @@ renderNotes();
 var dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
 
 const addNote = () => {
-	const note = {
-		id: '' + Date.now(),
-		title: title.value,
-		content: content.value,
-		createDate: new Date().toLocaleDateString('pl-PL', dateOptions),
-		color: colorPicker.value,
-	};
+	if (!title.value || !content.value) {
+		alert('Type anything');
+		return;
+	}else{
+		const note = {
+			id: '' + Date.now(),
+			title: title.value,
+			content: content.value,
+			createDate: new Date().toLocaleDateString('pl-PL', dateOptions),
+			color: colorPicker.value,
+		};
 
-	notes.push(note);
-	localStorage.setItem(LS_KEY, JSON.stringify(notes));
-	renderNotes();
+		notes.push(note);
+		localStorage.setItem(LS_KEY, JSON.stringify(notes));
+		renderNotes();}
+	
 };
 
 const deleteNote = (id) => {
@@ -64,6 +69,7 @@ const deleteNote = (id) => {
 	renderNotes();
 	deleteBtns.forEach((btn) => btn.addEventListener('click', onDeleteClick));
 };
+
 
 deleteBtns.forEach((btn) => btn.addEventListener('click', onDeleteClick));
 addBtn.addEventListener('click', addNote);
